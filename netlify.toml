@@ -1,0 +1,33 @@
+# Site 100% estático (HTML/CSS/JS puro) — sem etapa de build.
+[build]
+  publish = "."
+  command = ""
+
+# Canônico é maismoney.org (sem www). www.maismoney.org e maismoney.org
+# respondiam 200 com o mesmo conteúdo — conteúdo duplicado pro Google.
+# force=true aplica o redirect mesmo se o painel do Netlify também tiver um
+# domínio primário configurado, então a regra fica explícita em código, não
+# só na configuração da conta.
+[[redirects]]
+  from = "https://www.maismoney.org/*"
+  to = "https://maismoney.org/:splat"
+  status = 301
+  force = true
+
+# Cache agressivo pros arquivos de mídia (o vídeo do hero tem ~8MB): como o
+# nome do arquivo não muda quando o conteúdo muda, o navegador do visitante
+# guarda por 1 ano depois do primeiro carregamento. Se algum dia você trocar
+# um arquivo em midia/ mantendo o mesmo nome, troque o nome (ex: hero-video-v2.mp4)
+# em vez de só substituir — senão visitantes que já passaram aqui não vão ver
+# a versão nova até o cache expirar.
+[[headers]]
+  for = "/midia/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML nunca fica em cache agressivo: precisa sempre buscar a versão mais
+# recente, já que é ele que referencia o CSS/JS/mídia.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
