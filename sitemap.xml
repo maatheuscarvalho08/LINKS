@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Site é single-page (sem roteador, navegação por âncoras). Só existe UMA
+  URL indexável de verdade: a home. Âncoras (#produtos, #loja, #sobre,
+  #contato) não entram aqui — não são URLs distintas pro Google, são só
+  posições de rolagem dentro da mesma página.
+  Quando a Fase 5 (rotas por produto) for aprovada e implementada, cada
+  rota nova precisa ganhar sua própria entrada <url> aqui.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://maismoney.org/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
