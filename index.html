@@ -25,10 +25,10 @@
 
 <!-- JSON-LD (FinancialService). Todo campo abaixo veio de conteúdo real
      já presente na página (endereço, telefone, CNPJ, horário, Instagram
-     em index.html; areaServed conforme instruído na tarefa). Os únicos
-     dados sem fonte no repositório — latitude e longitude — usam o
-     token PREENCHER_ em vez de valor inventado; ver pendências no
-     relatório final. -->
+     em index.html; areaServed conforme instruído na tarefa). "geo" foi
+     removido porque não há latitude/longitude reais no repositório —
+     a propriedade é opcional em FinancialService/LocalBusiness. Ver
+     pendência no relatório final para adicionar quando o dado existir. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,11 +47,6 @@
     "addressRegion": "RJ",
     "postalCode": "24710-470",
     "addressCountry": "BR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "PREENCHER_LATITUDE",
-    "longitude": "PREENCHER_LONGITUDE"
   },
   "openingHoursSpecification": [
     {
