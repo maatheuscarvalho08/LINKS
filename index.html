@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MaisMoney — Links</title>
+<meta name="description" content="Simule seu crédito consignado, antecipação de FGTS e mais. Atendimento direto pelo WhatsApp.">
+<link rel="icon" type="image/png" href="../midia/favicon.png">
+<link rel="apple-touch-icon" href="../midia/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg:         #071735;
+    --card:       #0F2C4C;
+    --card-hover: #162F52;
+    --border:     rgba(255,255,255,.10);
+    --orange:     #E8620E;
+    --orange-lit: #FF9A3D;
+    --text:       #FFFFFF;
+    --text-muted: #9DB3C9;
+    --font-d: "Sora", system-ui, sans-serif;
+    --font-b: "Manrope", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg:         #EDF1F5;
+      --card:       #FFFFFF;
+      --card-hover: #F5F8FB;
+      --border:     rgba(7,23,53,.12);
+      --text:       #071735;
+      --text-muted: #55708C;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:         #EDF1F5;
+    --card:       #FFFFFF;
+    --card-hover: #F5F8FB;
+    --border:     rgba(7,23,53,.12);
+    --text:       #071735;
+    --text-muted: #55708C;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; min-height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-b);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem 3rem;
+    padding-top: calc(2.5rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,.025) 18px,
+        rgba(255,255,255,.025) 19px
+      );
+  }
+
+  .page {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-wrap {
+    margin-bottom: 1.1rem;
+  }
+  .logo-wrap svg {
+    width: 210px;
+    height: auto;
+    display: block;
+  }
+
+  .brand-tag {
+    font-size: .875rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+    margin: 0 0 .6rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--font-d);
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .2em .7em;
+    border-radius: 99px;
+    margin-bottom: 1.75rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange) 30%, var(--orange) 70%, transparent);
+    opacity: .35;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-label {
+    width: 100%;
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: .65rem;
+    padding-left: .1rem;
+  }
+
+  .links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: .875rem;
+    width: 100%;
+    padding: .95rem 1.1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: var(--font-b);
+    font-size: .9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .18s, border-color .18s, transform .14s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-btn::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--orange);
+    border-radius: 12px 0 0 12px;
+    opacity: 0;
+    transition: opacity .18s;
+  }
+
+  .link-btn:hover { background: var(--card-hover); border-color: rgba(232,98,14,.35); transform: translateY(-1px); }
+  .link-btn:hover::before { opacity: 1; }
+  .link-btn:active { transform: translateY(0); }
+  .link-btn:focus-visible { outline: 2px solid var(--orange-lit); outline-offset: 2px; border-radius: 12px; }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(232,98,14,.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .btn-label { flex: 1; }
+  .btn-sub {
+    font-size: .75rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: .1rem;
+  }
+
+  .btn-arrow {
+    color: var(--text-muted);
+    font-size: .85rem;
+    flex-shrink: 0;
+    opacity: .6;
+    transition: opacity .18s, transform .18s;
+  }
+  .link-btn:hover .btn-arrow { opacity: 1; transform: translateX(2px); }
+
+  /* INSS em destaque */
+  @keyframes pulse-glow {
+    0%   { box-shadow: 0 0 0 0 rgba(232,98,14,.55); }
+    50%  { box-shadow: 0 0 0 8px rgba(232,98,14,.0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,98,14,.0); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    15%       { transform: translateX(-3px) rotate(-.4deg); }
+    30%       { transform: translateX(3px) rotate(.4deg); }
+    45%       { transform: translateX(-2px); }
+    60%       { transform: translateX(2px); }
+    75%       { transform: translateX(-1px); }
+  }
+
+  .link-btn.inss-featured {
+    background: linear-gradient(135deg, #C9500A 0%, #E8620E 100%);
+    border: 2px solid var(--orange-lit);
+    color: #fff;
+    animation: pulse-glow 2.2s ease-out infinite, shake 4s ease-in-out 1.5s infinite;
+  }
+  .link-btn.inss-featured::before { display: none; }
+  .link-btn.inss-featured:hover {
+    background: linear-gradient(135deg, #B8460A 0%, #D5570B 100%);
+    border-color: #fff;
+    animation: none;
+    transform: translateY(-1px);
+  }
+  .link-btn.inss-featured .btn-icon { background: rgba(255,255,255,.2); }
+  .link-btn.inss-featured .btn-sub { color: rgba(255,255,255,.8); }
+  .link-btn.inss-featured .btn-arrow { color: rgba(255,255,255,.85); }
+
+  .hot-tag {
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    background: #fff;
+    color: var(--orange);
+    border-radius: 99px;
+    padding: .15em .55em;
+    margin-left: .5rem;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-btn.inss-featured { animation: none; }
+  }
+
+  .footer {
+    font-size: .75rem;
+    color: var(--text-muted);
+    text-align: center;
+    opacity: .7;
+    line-height: 1.5;
+  }
+  .footer a { color: var(--orange-lit); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 400px) {
+    body { padding: 2rem .75rem 2.5rem; }
+    .logo-wrap svg { width: 160px; }
+    .link-btn { font-size: .875rem; padding: .85rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page" role="main">
+
+  <div class="logo-wrap" aria-label="MaisMoney">
+    <svg viewBox="0 0 520 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MaisMoney logo">
+      <rect x="18" y="48" width="36" height="100" rx="12" fill="#E8620E"/>
+      <rect x="0" y="80" width="72" height="36" rx="12" fill="#E8620E"/>
+      <text x="86" y="148" font-family="Arial Black, Arial, sans-serif" font-size="112" font-weight="900" fill="#071F5C" letter-spacing="-2">Money</text>
+      <path d="M56 172 Q290 255 510 172" stroke="#E8620E" stroke-width="11" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+
+  <p class="brand-tag">Crédito que trabalha por você<br>São Gonçalo, RJ · desde 2022</p>
+  <span class="badge">Atendimento rápido e sem burocracia</span>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <p class="section-label">Simule agora</p>
+  <div class="links" role="list">
+
+    <a class="link-btn inss-featured" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+do+Empr%C3%A9stimo+Consignado+INSS+%28aposentado%2Fpensionista%29." role="listitem">
+      <span class="btn-icon" aria-hidden="true">🧓</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:700">Consignado INSS <span class="hot-tag">Em alta</span></span>
+        <span class="btn-sub">Aposentados e pensionistas · melhores taxas</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+do+Empr%C3%A9stimo+Consignado+CLT." role="listitem">
+      <span class="btn-icon" aria-hidden="true">👷</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Empréstimo Consignado CLT</span>
+        <span class="btn-sub">Para trabalhadores com carteira assinada</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+da+antecipa%C3%A7%C3%A3o+do+meu+FGTS." role="listitem">
+      <span class="btn-icon" aria-hidden="true">💰</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Antecipação do FGTS</span>
+        <span class="btn-sub">Saque-aniversário sem sair de casa</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+do+Consignado+para+Servidor+P%C3%BAblico." role="listitem">
+      <span class="btn-icon" aria-hidden="true">🏛️</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Consignado Servidor Público</span>
+        <span class="btn-sub">Federal, estadual e municipal</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+de+Cr%C3%A9dito+Pessoal." role="listitem">
+      <span class="btn-icon" aria-hidden="true">💳</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Crédito Pessoal</span>
+        <span class="btn-sub">Parcelas que cabem no seu bolso</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+do+Consignado+SIAPE+%28servidor+federal%29." role="listitem">
+      <span class="btn-icon" aria-hidden="true">🪖</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Consignado SIAPE</span>
+        <span class="btn-sub">Servidores federais civis e militares</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+quero+fazer+uma+simula%C3%A7%C3%A3o+do+Cr%C3%A9dito+na+Conta+de+Luz." role="listitem">
+      <span class="btn-icon" aria-hidden="true">⚡</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Crédito na Conta de Luz</span>
+        <span class="btn-sub">Empréstimo descontado na fatura de energia</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+  </div>
+
+  <p class="section-label">Atendimento</p>
+  <div class="links" role="list">
+
+    <a class="link-btn" href="https://wa.me/552164032468?text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+cr%C3%A9dito." role="listitem">
+      <span class="btn-icon" aria-hidden="true">💬</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">WhatsApp</span>
+        <span class="btn-sub">Resposta em minutos</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://maismoney.org/loja-sao-goncalo/" role="listitem">
+      <span class="btn-icon" aria-hidden="true">📍</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Nossa Loja em São Gonçalo</span>
+        <span class="btn-sub">Alcântara · seg–sáb 9h às 18h</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn" href="https://maismoney.org/sobre/" role="listitem">
+      <span class="btn-icon" aria-hidden="true">ℹ️</span>
+      <span class="btn-label">
+        <span style="display:block;font-weight:600">Sobre a MaisMoney</span>
+        <span class="btn-sub">Quem somos e como trabalhamos</span>
+      </span>
+      <span class="btn-arrow" aria-hidden="true">›</span>
+    </a>
+
+  </div>
+
+  <p class="footer">
+    MAIS MONEY PROMOTORA DE VENDAS LTDA<br>
+    CNPJ 45.027.472/0001-76 · São Gonçalo, RJ<br>
+    <a href="https://maismoney.org">maismoney.org</a>
+  </p>
+
+</main>
+
+</body>
+</html>
